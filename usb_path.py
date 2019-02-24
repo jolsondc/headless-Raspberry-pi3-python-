@@ -15,6 +15,7 @@ class Usb:
         output = check_output(['mount']).splitlines()
         is_usb = lambda path: any(dev in path for dev in devices)
         usb_info = (line for line in output if is_usb(line.split()[0]))
+        #device name having whitespace- solution is below
         fullInfo = []
         for info in usb_info:
             print(info)
