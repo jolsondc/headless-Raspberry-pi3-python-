@@ -8,7 +8,7 @@ try:
 
     def device_event(observer, device):
         print 'event {0} on device {1}'.format(device.action, device)
-       print usb.get_mount_points()[1]
+       print usb.get_mount_points()
 except:
     from pyudev.glib import GUDevMonitorObserver as MonitorObserver
 
