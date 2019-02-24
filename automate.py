@@ -6,7 +6,6 @@ import time # For pausing
 
 try:
     from pyudev.glib import MonitorObserver
-
     def device_event(observer, device):
         print 'event {0} on device {1}'.format(device.action, device)
         if device.action == 'add':
@@ -17,8 +16,8 @@ try:
             print "removed"
         #time.sleep(2)
         #print usb.get_mount_points()
-        except:
-            from pyudev.glib import GUDevMonitorObserver as MonitorObserver
+except:
+    from pyudev.glib import GUDevMonitorObserver as MonitorObserver
 
 def device_event(observer, action, device):
     print 'event {0} on device {1}'.format(action, device)
