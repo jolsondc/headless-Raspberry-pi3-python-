@@ -1,7 +1,7 @@
 import glib
 
 from pyudev import Context, Monitor
-from Usb import Usb
+from .usb_path import Usb
 
 try:
     from pyudev.glib import MonitorObserver
