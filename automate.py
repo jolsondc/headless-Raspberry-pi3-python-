@@ -4,6 +4,7 @@ from pyudev import Context, Monitor
 from usb_path import Usb
 import time # For pausing
 from dbus.mainloop.glib import DBusGMainLoop
+import  dbus, gobject
 
 try:
     from pyudev.glib import MonitorObserver
