@@ -2,12 +2,14 @@ import glib
 
 from pyudev import Context, Monitor
 from usb_path import Usb
+import time # For pausing
 
 try:
     from pyudev.glib import MonitorObserver
 
     def device_event(observer, device):
         print 'event {0} on device {1}'.format(device.action, device)
+        time.sleep(2000)
         print usb.get_mount_points()
 except:
     from pyudev.glib import GUDevMonitorObserver as MonitorObserver
