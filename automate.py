@@ -3,8 +3,6 @@ import glib
 from pyudev import Context, Monitor
 from usb_path import Usb
 import time # For pausing
-from dbus.mainloop.glib import DBusGMainLoop
-import  dbus, gobject
 
 try:
     from pyudev.glib import MonitorObserver
@@ -29,18 +27,6 @@ def get_usb_devices():
     monitor.start()
     glib.MainLoop().run()
 
-def waitforusb():
-    DBusGMainLoop(set_as_default=True)
-    bus = dbus.SystemBus()
-    proxy = bus.get_object("org.freedesktop.UDisks", "/org/freedesktop/UDisks")
-    iface = dbus.Interface(proxy, "org.freedesktop.UDisks")
-    devices = iface.get_dbus_method('EnumerateDevices')()
-    iface.connect_to_signal('DeviceAdded', device_event)
-    global mainloop
-    mainloop = gobject.MainLoop()
-    mainloop.run()
-
-
 if __name__ == '__main__':
     usb = Usb()
-    waitforusb()
+    get_usb_devices()
