@@ -8,7 +8,7 @@ try:
     from pyudev.glib import MonitorObserver
   
     def device_event(observer, device):
-        print 'event {0} on device {1}'.format(device.action, device)
+        print 'event {0} on device {1}'.format(device.action, device.device_type)
         if device.action == 'add':
             # some function to run on insertion of usb
             print "added"
