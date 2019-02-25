@@ -7,15 +7,16 @@ try:
     from pyudev.glib import MonitorObserver
   
     def device_event(observer, device):
-        print 'event {0} on device {1}'.format(device.action, device.device_type)
+        #print 'event {0} on device {1}'.format(device.action, device.device_type)
         if device.action == 'add':
             # some function to run on insertion of usb
             if(device.device_type=='usb_interface'):
-                print usb.get_mount_points()
+                path= usb.get_mount_points()
+                print path.count()
 
         else:
             # some function to run on removal of usb
-            print "removed"
+            #print "removed"
         #time.sleep(2)
         #print usb.get_mount_points()
 except:
