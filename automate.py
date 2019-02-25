@@ -14,7 +14,7 @@ try:
                 path= usb.get_mount_points()
                 print path.count()
 
-        else:
+       # else:
             # some function to run on removal of usb
             #print "removed"
         #time.sleep(2)
