@@ -11,8 +11,7 @@ try:
         if device.action == 'add':
             # some function to run on insertion of usb
             if(device.device_type=='usb_interface'):
-                path= usb.get_mount_points()
-                print len(path)
+                print usb.get_mount_points()
 
        # else:
             # some function to run on removal of usb
