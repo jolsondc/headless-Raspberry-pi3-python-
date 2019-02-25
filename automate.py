@@ -11,7 +11,9 @@ try:
         print 'event {0} on device {1}'.format(device.action, device.device_type)
         if device.action == 'add':
             # some function to run on insertion of usb
-            print "added"
+            if(device.device_type=='usb_interface'):
+                print usb.get_mount_points()
+                
         else:
             # some function to run on removal of usb
             print "removed"
