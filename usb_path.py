@@ -20,7 +20,6 @@ class Usb:
         #device name having whitespace- solution is below
         fullInfo = []
         for info in usb_info:
-            print(info)
             mountURI = info.split()[0]
             usbURI = info.split()[2]
             print(info.split().__sizeof__())
