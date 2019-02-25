@@ -12,7 +12,7 @@ try:
             # some function to run on insertion of usb
             if(device.device_type=='usb_interface'):
                 path= usb.get_mount_points()
-                print path.count()
+                print len(path)
 
        # else:
             # some function to run on removal of usb
