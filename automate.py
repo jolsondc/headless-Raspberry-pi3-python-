@@ -2,7 +2,6 @@ import glib
 
 from pyudev import Context, Monitor
 from usb_path import Usb
-import time # For pausing
 
 try:
     from pyudev.glib import MonitorObserver
@@ -13,7 +12,7 @@ try:
             # some function to run on insertion of usb
             if(device.device_type=='usb_interface'):
                 print usb.get_mount_points()
-                
+
         else:
             # some function to run on removal of usb
             print "removed"

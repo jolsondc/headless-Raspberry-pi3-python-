@@ -1,6 +1,7 @@
 import os
 from glob import glob
 from subprocess import check_output, CalledProcessError
+import time # For pausing
 
 class Usb:
 
@@ -11,6 +12,7 @@ class Usb:
         return dict((os.path.basename(dev), dev) for dev in usb_devices)
 
     def get_mount_points(self,devices=None):
+        time.sleep(2)
         devices = devices or self.get_usb_devices() # if devices are None: get_usb_devices
         output = check_output(['mount']).splitlines()
         is_usb = lambda path: any(dev in path for dev in devices)
