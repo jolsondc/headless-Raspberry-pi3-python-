@@ -13,6 +13,7 @@ try:
             if(device.device_type=='usb_interface'):
                 #print usb.get_mount_points()
                 path=usb.get_mount_points()
+                print path
                 if not path[0][1]:
                     print('empty')
                 else:
