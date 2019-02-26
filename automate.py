@@ -33,7 +33,7 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def find_that_file_latest(path):
-    files_path = os.path.join(path, '*csv')
+    files_path = os.path.join(path, '*.csv')
     list_of_files = glob.iglob(files_path) # * means all if need specific format then *.csv
     print list_of_files
     latest_file = max(list_of_files, key=os.path.getctime)
