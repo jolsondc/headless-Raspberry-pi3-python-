@@ -25,9 +25,10 @@ except:
         print 'event {0} on device {1}'.format(action, device)
 
 def find_that_file(path):
-    for file in os.listdir(path):
-        if file.endswith(".csv"):
-            return os.path.join(path, file)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.endswith(".csv"):
+                return os.path.join(root, file)
 
 def get_usb_devices():
     context = Context()
