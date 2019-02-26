@@ -26,8 +26,8 @@ except:
 
 def find_that_file(path):
     for file in os.listdir(path):
-    if file.endswith(".csv"):
-        return os.path.join(path, file)
+        if file.endswith(".csv"):
+            return os.path.join(path, file)
 
 def get_usb_devices():
     context = Context()
