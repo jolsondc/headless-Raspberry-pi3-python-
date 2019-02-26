@@ -16,7 +16,7 @@ try:
                 if not path[0][1]:
                     print('empty')
                 else:
-                    print find_that_file(path[0][1])
+                    print find_that_file_latest(path[0][1])
 
 except:
     from pyudev.glib import GUDevMonitorObserver as MonitorObserver
@@ -29,6 +29,11 @@ def find_that_file(path):
         for file in files:
             if file.endswith(".csv"):
                 return os.path.join(root, file)
+
+def find_that_file_latest(path):
+    list_of_files = glob.glob(path+'*.csv') # * means all if need specific format then *.csv
+    latest_file = max(list_of_files, key=os.path.getctime)
+    print latest_file
 
 def get_usb_devices():
     context = Context()
