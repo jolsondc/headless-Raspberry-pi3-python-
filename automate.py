@@ -7,7 +7,6 @@ try:
     from pyudev.glib import MonitorObserver
   
     def device_event(observer, device):
-        #print 'event {0} on device {1}'.format(device.action, device.device_type)
         if device.action == 'add':
             # some function to run on insertion of usb
             if(device.device_type=='usb_interface'):
@@ -17,21 +16,18 @@ try:
                 if not path[0][1]:
                     print('empty')
                 else:
-                    print path[0][1]
-                #if (len(usb.get_mount_points())>0 and len(usb.get_mount_points())[0]>0):
-                 #   print usb.get_mount_points()[0][1]
+                    print find_that_file(path[0][1])
 
-       # else:
-            # some function to run on removal of usb
-            #print "removed"
-        #time.sleep(2)
-        #print usb.get_mount_points()
 except:
     from pyudev.glib import GUDevMonitorObserver as MonitorObserver
    
     def device_event(observer, action, device):
         print 'event {0} on device {1}'.format(action, device)
 
+def find_that_file(path):
+    for file in os.listdir(path):
+    if file.endswith(".csv"):
+        return os.path.join(path, file)
 
 def get_usb_devices():
     context = Context()

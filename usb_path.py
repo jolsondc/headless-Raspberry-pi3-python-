@@ -22,7 +22,7 @@ class Usb:
         for info in usb_info:
             mountURI = info.split()[0]
             usbURI = info.split()[2]
-            print(info.split().__sizeof__())
+            #print(info.split().__sizeof__())
             for x in range(3, info.split().__sizeof__()):
                 if info.split()[x].__eq__("type"):
                     for m in range(3, x):
