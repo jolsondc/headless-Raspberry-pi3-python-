@@ -1,5 +1,5 @@
 import glib
-
+import os
 from pyudev import Context, Monitor
 from usb_path import Usb
 
