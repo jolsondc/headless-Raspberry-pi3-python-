@@ -1,5 +1,7 @@
 import glib
 import os
+import glob
+
 from pyudev import Context, Monitor
 from usb_path import Usb
 
@@ -31,7 +33,7 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def find_that_file_latest(path):
-    list_of_files = glob.glob(path+'*.csv') # * means all if need specific format then *.csv
+    list_of_files = glob.iglob(path+'*.csv') # * means all if need specific format then *.csv
     latest_file = max(list_of_files, key=os.path.getctime)
     print latest_file
 
