@@ -35,7 +35,8 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def copy_file_to_dest(src):
-    dst='/home/pi/storage/data.csv'
+    dst='/home/pi/storage/Scan_1.php'
+    src='/home/pi/Documents/scan.php'
     copy(src, dst)
     print "copied"
 
