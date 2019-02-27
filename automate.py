@@ -1,7 +1,7 @@
 import glib
 import os
 import glob
-
+from shutil import copyfile
 from pyudev import Context, Monitor
 from usb_path import Usb
 
@@ -18,7 +18,8 @@ try:
                 if not path[0][1]:
                     print('empty')
                 else:
-                    print find_that_file_latest(path[0][1])
+                    csv_path= find_that_file_latest(path[0][1])
+
 
 except:
     from pyudev.glib import GUDevMonitorObserver as MonitorObserver
@@ -31,6 +32,12 @@ def find_that_file(path):
         for file in files:
             if file.endswith(".csv"):
                 return os.path.join(root, file)
+
+def copy_file_to_dest(src):
+    dst='/home/pi/storage'
+    copyfile(src, dst)
+    print "copied"
+
 
 def find_that_file_latest(path):
     files_path = os.path.join(path, '*.csv')
