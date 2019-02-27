@@ -37,7 +37,7 @@ def find_that_file(path):
 def copy_file_to_dest(src):
     try :
         dst='/home/pi/storage/data.csv'
-        copyfile(src, dst)
+        copytree(src, dst, ignore=ignore_patterns('*.pyc', 'tmp*'))    
         print "copied"
     except Exception as e:
         print e
