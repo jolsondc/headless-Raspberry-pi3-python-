@@ -36,7 +36,8 @@ def find_that_file(path):
 
 def copy_file_to_dest(src):
     dst='/home/pi/storage/data.csv'
-    not os.path.exists(dst) or os.makedirs(dst)
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    os.path.exists(str(src))
     copy2(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
     print "copied"
 
