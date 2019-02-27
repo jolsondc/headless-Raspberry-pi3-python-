@@ -19,6 +19,7 @@ try:
                     print('empty')
                 else:
                     csv_path= find_that_file_latest(path[0][1])
+                    copy_file_to_dest(csv_path)
 
 
 except:
