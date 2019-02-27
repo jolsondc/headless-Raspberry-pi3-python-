@@ -35,9 +35,12 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def copy_file_to_dest(src):
-    dst='/home/pi/storage/'
-    copyfile(src, os.path.join(dst,'data1.csv'))
-    print "copied"
+    try
+        dst='/home/pi/storage/data.csv'
+        copyfile(src, dst)
+        print "copied"
+    except Exception as e:
+        print e
 
 
 def find_that_file_latest(path):
