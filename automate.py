@@ -36,7 +36,7 @@ def find_that_file(path):
 
 def copy_file_to_dest(src):
     dst='/home/pi/storage/data.csv'
-    os.makedirs(os.path.dirname(dst)
+    os.makedirs(os.path.dirname(dst))
     shutil.copy(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
     print "copied"
 
