@@ -1,7 +1,7 @@
 import glib
 import os
 import glob
-from shutil import copytree
+from shutil import copytree,ignore_patterns
 from pyudev import Context, Monitor
 from usb_path import Usb
 
