@@ -1,7 +1,7 @@
 import glib
 import os
 import glob
-from shutil import copy,copytree,ignore_patterns
+from shutil import copy2,copytree,ignore_patterns
 from pyudev import Context, Monitor
 from usb_path import Usb
 
@@ -36,7 +36,7 @@ def find_that_file(path):
 
 def copy_file_to_dest(src):
     dst='/home/pi/storage/'
-    copy(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
+    copy2(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
     print "copied"
 
 
