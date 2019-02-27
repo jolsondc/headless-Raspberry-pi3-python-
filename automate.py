@@ -35,8 +35,8 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def copy_file_to_dest(src):
-    dst='/home/pi/storage/data.csv'
-    copytree(str(src), dst, ignore=ignore_patterns('*.pyc', 'tmp*'))    
+    dst='/home/pi/storage/'
+    copy(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
     print "copied"
 
 
