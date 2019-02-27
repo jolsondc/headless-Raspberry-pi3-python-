@@ -1,7 +1,7 @@
 import glib
 import os
 import glob
-from shutil import copytree,ignore_patterns
+from shutil import copyfile
 from pyudev import Context, Monitor
 from usb_path import Usb
 
@@ -35,12 +35,12 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def copy_file_to_dest(src):
-    try :
-        dst='/home/pi/storage/data.csv'
-        copytree(src, dst, ignore=ignore_patterns('*.pyc', 'tmp*'))    
-        print "copied"
-    except Exception as e:
-        print e
+    base_name, extension = os.path.splitext("data")
+    output_filename = base_name + '.csv'
+    print output_filename
+    dst='/home/pi/storage/'
+    copyfile(src, dst+output_filename)
+    print "copied"
 
 
 def find_that_file_latest(path):
