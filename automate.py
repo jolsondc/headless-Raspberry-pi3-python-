@@ -35,8 +35,8 @@ def find_that_file(path):
                 return os.path.join(root, file)
 
 def copy_file_to_dest(src):
-    dst='/home/pi/storage/'
-    copy(src, os.path.join(dst,'.csv'))
+    dst='/home/pi/storage/data.csv'
+    copy(src, dst)
     print "copied"
 
 
