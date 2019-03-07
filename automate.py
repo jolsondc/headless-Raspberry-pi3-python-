@@ -20,6 +20,7 @@ try:
                     print('empty')
                 else:
                     csv_path= find_that_file_latest(path[0][1])
+                    print('path is :'+csv_path);
                     if os.path.isdir(csv_path):
                         copy_file_to_dest(csv_path)
 
