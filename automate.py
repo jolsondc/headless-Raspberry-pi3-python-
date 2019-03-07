@@ -37,6 +37,7 @@ def find_that_file(path):
             if file.endswith(".csv"):
                 finalCsvList.append(os.path.join(root, file))
                 #return os.path.join(root, file)
+    print(finalCsvList)
     return finalCsvList
 
 def copy_file_to_dest(src):
@@ -46,7 +47,6 @@ def copy_file_to_dest(src):
     #os.makedirs(os.path.dirname(dst))
     copy(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
     print "copied"
-
 
 def find_that_file_latest(path):
     #files_path = os.path.join(path, '*.csv')
