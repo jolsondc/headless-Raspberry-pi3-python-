@@ -57,7 +57,7 @@ def copy_file_to_dest(src):
     #os.makedirs(os.path.dirname(dst))
     copy(str(src), dst)#, ignore=ignore_patterns('*.pyc', 'tmp*'))    
     print "copied"
-    delete_directory(src)
+    #delete_directory(src)
 
 def find_that_file_latest(path):
     #files_path = os.path.join(path, '*.csv')
