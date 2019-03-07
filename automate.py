@@ -23,6 +23,7 @@ try:
                     print('path is :'+csv_path);
                     if os.path.isfile(csv_path):
                         copy_file_to_dest(csv_path)
+                        print(os.path.dirname(csv_path))
 
 
 except:
