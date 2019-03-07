@@ -20,7 +20,8 @@ try:
                     print('empty')
                 else:
                     csv_path= find_that_file_latest(path[0][1])
-                    copy_file_to_dest(csv_path)
+                    if os.path.isdir(csv_path):
+                        copy_file_to_dest(csv_path)
 
 
 except:
@@ -30,10 +31,12 @@ except:
         print 'event {0} on device {1}'.format(action, device)
 
 def find_that_file(path):
+    finalCsvList=[]
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(".csv"):
-                return os.path.join(root, file)
+                finalCsvList.append(os.path.join(root, file))
+                #return os.path.join(root, file)
 
 def copy_file_to_dest(src):
     dst='/home/pi/storage/data.csv'
@@ -45,9 +48,9 @@ def copy_file_to_dest(src):
 
 
 def find_that_file_latest(path):
-    files_path = os.path.join(path, '*.csv')
-    list_of_files = glob.iglob(files_path) # * means all if need specific format then *.csv
-    latest_file = max(list_of_files, key=os.path.getctime)
+    #files_path = os.path.join(path, '*.csv')
+    #list_of_files = glob.iglob(files_path) # * means all if need specific format then *.csv
+    latest_file = max(find_that_file(path), key=os.path.getctime)
     return latest_file
 
 def get_usb_devices():
