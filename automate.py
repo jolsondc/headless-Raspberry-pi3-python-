@@ -37,6 +37,7 @@ def find_that_file(path):
             if file.endswith(".csv"):
                 finalCsvList.append(os.path.join(root, file))
                 #return os.path.join(root, file)
+    return finalCsvList
 
 def copy_file_to_dest(src):
     dst='/home/pi/storage/data.csv'
