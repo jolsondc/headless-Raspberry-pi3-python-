@@ -21,7 +21,7 @@ try:
                 else:
                     csv_path= find_that_file_latest(path[0][1])
                     print('path is :'+csv_path);
-                    if os.path.isdir(csv_path):
+                    if os.path.isfile(csv_path):
                         copy_file_to_dest(csv_path)
 
 
@@ -38,7 +38,7 @@ def find_that_file(path):
             if file.endswith(".csv"):
                 finalCsvList.append(os.path.join(root, file))
                 #return os.path.join(root, file)
-    print(finalCsvList)
+    #print(finalCsvList)
     return finalCsvList
 
 def copy_file_to_dest(src):
