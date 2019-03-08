@@ -44,8 +44,9 @@ def find_that_file(path):
     finalCsvList=[]
     for root, dirs, files in os.walk(path):
         for file in files:
-            if file.endswith(".csv"):
-                finalCsvList.append(os.path.join(root, file))
+            if not file.startswith('.'):
+                if file.endswith(".csv"):
+                    finalCsvList.append(os.path.join(root, file))
                 #return os.path.join(root, file)
     #print(finalCsvList)
     return finalCsvList
