@@ -43,10 +43,10 @@ def delete_directory(path):
 def find_that_file(path):
     finalCsvList=[]
     for root, dirs, files in os.walk(path):
+        files = [f for f in files if not f[0] == '.']
         for file in files:
-            if not file.name.startswith('.'):
-                if file.endswith(".csv"):
-                    finalCsvList.append(os.path.join(root, file))
+            if file.endswith(".csv"):
+                finalCsvList.append(os.path.join(root, file))
                 #return os.path.join(root, file)
     #print(finalCsvList)
     return finalCsvList
